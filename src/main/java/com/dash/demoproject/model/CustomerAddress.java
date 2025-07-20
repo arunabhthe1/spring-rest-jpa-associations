@@ -30,7 +30,7 @@ public class CustomerAddress {
 	private String addressDetails;
 	private Long pin;
 	@JsonIgnore
-	@OneToOne(mappedBy = "customerAddress", fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "customerAddress", fetch = FetchType.EAGER)
 	private Customer customer;
 	
 

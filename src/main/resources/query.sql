@@ -1,0 +1,1 @@
+select organizati0_.org_id as org_id1_8_, organizati0_.created_by as created_2_8_, organizati0_.created_dt as created_3_8_, organizati0_.innaguration_dt as innagura4_8_, organizati0_.number_of_emp as number_o5_8_, organizati0_.org_code as org_code6_8_, organizati0_.org_head_name as org_head7_8_, organizati0_.org_name as org_name8_8_ from organization organizati0_

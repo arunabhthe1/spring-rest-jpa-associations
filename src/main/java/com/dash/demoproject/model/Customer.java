@@ -10,9 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,9 +28,8 @@ public class Customer {
 	private Long custId;
 	private String custName;
 	private String custType;
-	
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "address_id")
+    @JoinColumn(name = "add_id", referencedColumnName = "address_id" )
 	private CustomerAddress customerAddress;
 	
 	@OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
@@ -43,8 +39,8 @@ public class Customer {
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "CUSTOMER_TRADING_ACCOUNT_MAP", 
     joinColumns = 
-      { @JoinColumn(name = "cust_id", referencedColumnName = "cust_id") },
+      { @JoinColumn(name = "c_id", referencedColumnName = "cust_id") },
     inverseJoinColumns = 
-      { @JoinColumn(name = "trading_id", referencedColumnName = "trading_id") })
+      { @JoinColumn(name = "t_id", referencedColumnName = "trading_id") })
 	private TradingAccount tradingAccount;
 }

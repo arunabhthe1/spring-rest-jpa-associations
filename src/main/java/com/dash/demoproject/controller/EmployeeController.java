@@ -3,15 +3,11 @@ package com.dash.demoproject.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.dash.demoproject.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.dash.demoproject.model.Employee;
 import com.dash.demoproject.service.EmployeeServiceImpl;
@@ -22,7 +18,7 @@ public class EmployeeController {
 	private final Logger LOGGER=LoggerFactory.getLogger(this.getClass());
 	
 	public EmployeeController() {
-		System.out.println(" This is the EmployeeController");
+		LOGGER.info(" This is the EmployeeController");
 	}
 	@Autowired
 	private EmployeeServiceImpl employeeServiceImpl; 
@@ -49,6 +45,22 @@ public class EmployeeController {
 		List<Employee> employees=employeeServiceImpl.getEmpleeyByFirstName(firstname);
 		LOGGER.info("Employees ::-->"+employees);
 		return employees;
+	}
+
+
+	@PutMapping(value="/employees")
+	public Customer updateEmployee(@RequestBody Customer customer){
+		LOGGER.info(" This is update Customer");
+		customer.getRetailBankAccount().setCustomer(customer);
+		//return employeeServiceImpl.saveOrUpdateCustomer(customer);
+		return null;
+	}
+
+	@DeleteMapping(value="/employees/{employeeId}")
+	public String deleteEmployee(@PathVariable Long customerId){
+		LOGGER.info(" This is delete Customer for customer id ",customerId);
+		//customerService.deleteCustomerByCustId(customerId);
+		return "SUCCESS";
 	}
 	
 	@GetMapping(value="/employees/uniqueval")

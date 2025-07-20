@@ -10,10 +10,16 @@ import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-
-@Entity(name="ADDRESS")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity(name="EMPLOYEE_ADDRESS")
 public class Address {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -43,43 +49,6 @@ public class Address {
 			return false;
 		Address other = (Address) obj;
 		return Objects.equals(addressid, other.addressid);
-	}
-	public Long getAddressid() {
-		return addressid;
-	}
-	public Long getEmpid() {
-		return empid;
-	}
-	public String getLane() {
-		return lane;
-	}
-	public String getCity() {
-		return city;
-	}
-	public String getState() {
-		return state;
-	}
-	public String getAddresstype() {
-		return addresstype;
-	}
-	public void setAddressid(Long addressid) {
-		this.addressid = addressid;
-	}
-	public void setEmpid(Long empid) {
-		this.empid = empid;
-	}
-	public void setLane(String lane) {
-		this.lane = lane;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public void setAddresstype(String addresstype) {
-		this.addresstype = addresstype;
-	}
-	
+	}	
 
 }

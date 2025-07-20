@@ -20,6 +20,11 @@ public class CustomerService {
 	public List<Customer> getAllCustomers(){
 		return customerRepository.findAll();
 	}
+	
+	@Transactional
+	public Customer getCustomer(Long custId){
+		return customerRepository.findById(custId).get();
+	}
 	@Transactional
 	public Customer saveOrUpdateCustomer(Customer customer) {
 		return customerRepository.save(customer);
@@ -30,4 +35,8 @@ public class CustomerService {
 		return customerRepository.findById(custID);
 	}
 
+	@Transactional
+	public void deleteCustomerByCustId(Long custID) {
+		 customerRepository.deleteById(custID);
+	}
 }

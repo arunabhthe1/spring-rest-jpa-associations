@@ -21,13 +21,13 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name="RETAIL_BANK_ACCOUT")
+@Entity(name="RETAIL_BANK_ACCOUNT")
 public class RetailBankAccount {
 	@Id
 	@Column(name="cust_id")
 	private Long custId;
 	private Long accNo;
-	private Long ifscCode;
+	private String ifscCode;
     @OneToOne
     @MapsId
     @JoinColumn(name = "cust_id")
