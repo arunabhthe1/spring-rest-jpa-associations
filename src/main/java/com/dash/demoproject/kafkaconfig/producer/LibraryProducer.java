@@ -7,4 +7,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 @EnableKafka
 public class LibraryProducer {
 
+        private String nameProducer;
+
+
 }
